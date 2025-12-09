@@ -1,1 +1,25 @@
+name: Atividade Pratica Action Workflow
 
+on:
+  push:
+    branch:
+      - main
+
+jobs:
+  demonstracao-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: configurar node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: listar arquivos
+        run: echo "--- conteúdo do diretório ---"
+          ls -la
+
+      - name: imprime msg de sucesso
+        run: echo "Pipeline executada com sucesso!"
